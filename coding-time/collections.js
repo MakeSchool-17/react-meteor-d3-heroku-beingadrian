@@ -10,6 +10,11 @@ Meteor.methods({
 
         var parsedInt = parseInt(hours);
 
+        // validate int
+        if (isNaN(parsedInt)) {
+            throw new Meteor.Error("parse-int-error", "You did not enter a valid number, mate!")
+        }
+
         // checking
         check(parsedInt, Number);
         check(date, Date);
